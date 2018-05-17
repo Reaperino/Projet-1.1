@@ -21,7 +21,16 @@ public class GPersonnage {
     }
 
     public static Personnage getPers(Integer idp) throws IllegalArgumentException {
-                
+        int index = -1;
+        for(int i = 0; i < tsLesPersonnages.size(); i++) {
+            if(tsLesPersonnages.get(i).getIdp() == idp) {
+                index = i;
+            }
+            else {
+                throw new IllegalArgumentException("Idp inconnu");
+            }
+        }
+        return tsLesPersonnages.get(index);
     }
 
     public static void ajouterArcturien(String nom, Integer taille, Integer force) {
