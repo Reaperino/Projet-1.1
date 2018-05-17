@@ -1,6 +1,7 @@
 package packmodele;
 
 import java.util.Collection;
+import java.util.Collections;
 
 public class Terrien extends Personnage {
     /**
@@ -42,5 +43,17 @@ public class Terrien extends Personnage {
     @Override
     public void recevoirArme(Arme arme) {
         // TODO Implement this method
+    }
+
+    @Override
+    public Integer getForce() {
+        // TODO Implement this method
+        return null;
+    }
+
+    @Override
+    public Collection getArmes() {
+        // TODO Implement this method
+        return Collections.emptySet();
     }
 }
