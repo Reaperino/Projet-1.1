@@ -231,7 +231,17 @@
     isStatic='false'
     name='setVie'
     concurrency='sequential'
-    visibility='public'/>
+    visibility='public'>
+   <ownedParameter xmi:type='uml:Parameter' xmi:uuid='urn:uuid:b2d56d36-6cee-46c9-ac7c-5f9c29c4fb25'
+     isException='false'
+     isOrdered='false'
+     isStream='false'
+     isUnique='true'
+     name='vie'
+     direction='in'>
+    <type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer'/>
+   </ownedParameter>
+  </ownedOperation>
   <ownedOperation xmi:type='uml:Operation' xmi:uuid='urn:uuid:3cd0276d-a3d2-4186-a56f-35db9ff15327'
     isAbstract='false'
     isLeaf='false'
@@ -256,7 +266,17 @@
     isStatic='true'
     name='setC_VieInit'
     concurrency='sequential'
-    visibility='public'/>
+    visibility='public'>
+   <ownedParameter xmi:type='uml:Parameter' xmi:uuid='urn:uuid:995d5b7c-3a46-4721-8d7f-8fa3f7725522'
+     isException='false'
+     isOrdered='false'
+     isStream='false'
+     isUnique='true'
+     name='vie'
+     direction='in'>
+    <type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer'/>
+   </ownedParameter>
+  </ownedOperation>
   <ownedOperation xmi:type='uml:Operation' xmi:uuid='urn:uuid:f4a537bf-762c-4ff2-9017-a61555d7a100'
     isAbstract='true'
     isLeaf='false'
@@ -369,29 +389,6 @@
      name='victime'
      direction='in'>
     <type href='urn:uuid:b32341e7-9a35-4188-bd46-b4a435933273'/>
-   </ownedParameter>
-  </ownedOperation>
-  <ownedOperation xmi:type='uml:Operation' xmi:uuid='urn:uuid:2ed0ebd1-d4f9-4e7e-9f12-d88bcb7eb93a'
-    isAbstract='true'
-    isLeaf='false'
-    isQuery='false'
-    isStatic='false'
-    name='getArmes'
-    concurrency='sequential'
-    visibility='public'>
-   <ownedParameter xmi:type='uml:Parameter' xmi:uuid='urn:uuid:8821db4d-d0e3-46fa-8b57-6267f7379367'
-     isException='false'
-     isOrdered='false'
-     isStream='false'
-     isUnique='true'
-     direction='return'>
-    <type href='urn:uuid:cdc5f137-7409-445c-abd3-67b193517e4f'/>
-    <lowerValue xmi:type='uml:LiteralInteger' xmi:uuid='urn:uuid:6e521843-4689-4951-9389-b39611d14346'
-      value='0'
-      visibility='public'/>
-    <upperValue xmi:type='uml:LiteralUnlimitedNatural' xmi:uuid='urn:uuid:beafb287-8fa5-4cde-bd2d-4eae4d3e3261'
-      value='*'
-      visibility='public'/>
    </ownedParameter>
   </ownedOperation>
  </uml:Class>
