@@ -1,83 +1,69 @@
 package packmodele;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public abstract class Personnage {
-    /**
-     * @attribute
-     */
-    private Integer force;
-
-    /**
-     * @attribute
-     * @associates <{packmodele.Personnage}>
-     */
+  
+    protected Integer force;
     private Collection personnages;
-
-    /**
-     * @attribute
-     */
     private Integer vie;
-
-    /**
-     * @attribute
-     */
     private String nom;
-
-    /**
-     * @attribute
-     */
     private Integer idp;
-
-    /**
-     * @attribute
-     */
     private static Integer c_vieInit = 200;
-
-    /**
-     * @associates <{packmodele.Personnage}>
-     */
-    private Collection agresseur;
+    private ArrayList<Personnage> agresseur;
 
     public Personnage(Integer idp, String nom) {
+        this.idp = idp;
+        this.nom = nom;
+        this.vie = c_vieInit;
     }
 
-    public static void setC_VieInit() {
+    public static void setC_VieInit(Integer vie) {
+        c_vieInit = vie;
     }
 
-    public void setVie() {
+    public void setVie(Integer vie) {
+        this.vie = vie;
     }
 
     public String getNom() {
+        return this.nom;
     }
-
-    public abstract String presentationDetaille();
-
-    public void seFaitAttaquer(Personnage agresseur) {
-    }
-
+    
     public Integer getVie() {
+        return this.vie;
     }
 
-    public Collection getEnnemis() {
+    public ArrayList<Personnage> getEnnemis() {
+        ArrayList<Personnage> res = new ArrayList<Personnage>();
+        res.addAll(this.agresseur);
+        return res;
     }
 
     public static Integer getC_VieInit() {
+        return c_vieInit;
     }
 
-    public abstract String presentationCourte();
-
-    public Integer getForce() {
-    }
-
-    public Collection getArmes() {
-    }
+    public abstract Integer getForce(); 
 
     public Integer getIdp() {
+        return this.idp;
     }
-
-    public abstract void recevoirArme(Arme arme);
-
+    
     public void attaquer(Personnage victime) {
+        victime.seFaitAttaquer(this); //demander si this tout court marche
     }
+
+    public void seFaitAttaquer(Personnage agresseur) {
+        this.agresseur.add(agresseur);
+        this.vie -= agresseur.getForce();
+    }
+    
+    public abstract void recevoirArme(Arme arme);
+    
+    public abstract String presentationCourte();
+
+    public abstract String presentationDetaille();
+
 }
