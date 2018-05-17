@@ -121,6 +121,12 @@
           <type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer'/>
         </ownedParameter>
       </ownedOperation>
+      <ownedOperation xmi:type='uml:Operation' xmi:id='packmodele-Terrien-getArmes' xmi:uuid='urn:uuid:2ed0ebd1-d4f9-4e7e-9f12-d88bcb7eb93a' name='getArmes' visibility='public'>
+        <ownedParameter xmi:type='uml:Parameter' xmi:id='packmodele-Terrien-getArmes-ownedParameter_1' xmi:uuid='urn:uuid:8821db4d-d0e3-46fa-8b57-6267f7379367' direction='return' type='packmodele-Arme'>
+          <lowerValue xmi:type='uml:LiteralInteger' xmi:id='packmodele-Terrien-getArmes-ownedParameter_1-lowerValue_1' xmi:uuid='urn:uuid:6e521843-4689-4951-9389-b39611d14346'/>
+          <upperValue xmi:type='uml:LiteralUnlimitedNatural' xmi:id='packmodele-Terrien-getArmes-ownedParameter_1-upperValue_1' xmi:uuid='urn:uuid:beafb287-8fa5-4cde-bd2d-4eae4d3e3261' value='*'/>
+        </ownedParameter>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type='uml:Association' xmi:id='packmodele-Association1' xmi:uuid='urn:uuid:83316c92-84ba-4906-87e3-05d0dc5c48c3' name='Association1' memberEnd='packmodele-Association1-gère packmodele-Association1-tsLesPersonnages' navigableOwnedEnd='packmodele-Association1-tsLesPersonnages'>
       <ownedEnd xmi:type='uml:Property' xmi:id='packmodele-Association1-gère' xmi:uuid='urn:uuid:a7e47435-75b0-4950-826f-dcca84f4c2e5' name='gère' association='packmodele-Association1' type='packmodele-GPersonnage'>
@@ -197,13 +203,21 @@
       <ownedOperation xmi:type='uml:Operation' xmi:id='packmodele-Personnage-recevoirArme' xmi:uuid='urn:uuid:f436ff82-bcda-4e9e-80e2-07f921e480fb' isAbstract='true' name='recevoirArme' visibility='public'>
         <ownedParameter xmi:type='uml:Parameter' xmi:id='packmodele-Personnage-recevoirArme-arme' xmi:uuid='urn:uuid:12b80733-8a2b-4369-9b83-248e70a04fe1' name='arme' type='packmodele-Arme'/>
       </ownedOperation>
-      <ownedOperation xmi:type='uml:Operation' xmi:id='packmodele-Personnage-setVie' xmi:uuid='urn:uuid:41a19336-fcd4-4e10-b783-4f2ffa4257e7' name='setVie' visibility='public'/>
+      <ownedOperation xmi:type='uml:Operation' xmi:id='packmodele-Personnage-setVie' xmi:uuid='urn:uuid:41a19336-fcd4-4e10-b783-4f2ffa4257e7' name='setVie' visibility='public'>
+        <ownedParameter xmi:type='uml:Parameter' xmi:id='packmodele-Personnage-setVie-vie' xmi:uuid='urn:uuid:b2d56d36-6cee-46c9-ac7c-5f9c29c4fb25' name='vie'>
+          <type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer'/>
+        </ownedParameter>
+      </ownedOperation>
       <ownedOperation xmi:type='uml:Operation' xmi:id='packmodele-Personnage-getC_VieInit' xmi:uuid='urn:uuid:3cd0276d-a3d2-4186-a56f-35db9ff15327' isStatic='true' name='getC_VieInit' visibility='public'>
         <ownedParameter xmi:type='uml:Parameter' xmi:id='packmodele-Personnage-getC_VieInit-ownedParameter_1' xmi:uuid='urn:uuid:ac2fcf04-144e-42db-999a-36d9ce22dc17' direction='return'>
           <type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer'/>
         </ownedParameter>
       </ownedOperation>
-      <ownedOperation xmi:type='uml:Operation' xmi:id='packmodele-Personnage-setC_VieInit' xmi:uuid='urn:uuid:9260d509-e62c-4304-bad6-db581029cca9' isStatic='true' name='setC_VieInit' visibility='public'/>
+      <ownedOperation xmi:type='uml:Operation' xmi:id='packmodele-Personnage-setC_VieInit' xmi:uuid='urn:uuid:9260d509-e62c-4304-bad6-db581029cca9' isStatic='true' name='setC_VieInit' visibility='public'>
+        <ownedParameter xmi:type='uml:Parameter' xmi:id='packmodele-Personnage-setC_VieInit-vie' xmi:uuid='urn:uuid:995d5b7c-3a46-4721-8d7f-8fa3f7725522' name='vie'>
+          <type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer'/>
+        </ownedParameter>
+      </ownedOperation>
       <ownedOperation xmi:type='uml:Operation' xmi:id='packmodele-Personnage-presentationCourte' xmi:uuid='urn:uuid:f4a537bf-762c-4ff2-9017-a61555d7a100' isAbstract='true' name='presentationCourte' visibility='public'>
         <ownedParameter xmi:type='uml:Parameter' xmi:id='packmodele-Personnage-presentationCourte-ownedParameter_1' xmi:uuid='urn:uuid:32f5895a-86e5-4ffd-8859-f197a27ccf4c' direction='return'>
           <type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String'/>
@@ -232,12 +246,6 @@
       </ownedOperation>
       <ownedOperation xmi:type='uml:Operation' xmi:id='packmodele-Personnage-attaquer' xmi:uuid='urn:uuid:a24a47da-dd69-414d-a6d0-c38710a1d0a8' name='attaquer' visibility='public'>
         <ownedParameter xmi:type='uml:Parameter' xmi:id='packmodele-Personnage-attaquer-victime' xmi:uuid='urn:uuid:a05617a6-921a-4233-b92d-e8d4eb11a490' name='victime' type='packmodele-Personnage'/>
-      </ownedOperation>
-      <ownedOperation xmi:type='uml:Operation' xmi:id='packmodele-Personnage-getArmes' xmi:uuid='urn:uuid:2ed0ebd1-d4f9-4e7e-9f12-d88bcb7eb93a' isAbstract='true' name='getArmes' visibility='public'>
-        <ownedParameter xmi:type='uml:Parameter' xmi:id='packmodele-Personnage-getArmes-ownedParameter_1' xmi:uuid='urn:uuid:8821db4d-d0e3-46fa-8b57-6267f7379367' direction='return' type='packmodele-Arme'>
-          <lowerValue xmi:type='uml:LiteralInteger' xmi:id='packmodele-Personnage-getArmes-ownedParameter_1-lowerValue_1' xmi:uuid='urn:uuid:6e521843-4689-4951-9389-b39611d14346'/>
-          <upperValue xmi:type='uml:LiteralUnlimitedNatural' xmi:id='packmodele-Personnage-getArmes-ownedParameter_1-upperValue_1' xmi:uuid='urn:uuid:beafb287-8fa5-4cde-bd2d-4eae4d3e3261' value='*'/>
-        </ownedParameter>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type='uml:Class' xmi:id='packmodele-GPersonnage' xmi:uuid='urn:uuid:c49d525c-254c-47bf-96ef-e99340c726a2' name='GPersonnage'>
