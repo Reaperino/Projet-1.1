@@ -1,5 +1,8 @@
 package packmodele;
 
+import java.util.Collection;
+import java.util.Collections;
+
 public class Arcturien extends Personnage {
     /**
      * @attribute
@@ -47,5 +50,10 @@ public class Arcturien extends Personnage {
     @Override
     public void recevoirArme(Arme arme) {
         //rien ne doit se passe car un Arcturien ne sait pas se servir d'une arme.
+    }
+
+    @Override
+    public Integer getForce() {
+        return this.force;
     }
 }
