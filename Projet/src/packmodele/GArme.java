@@ -1,11 +1,12 @@
 package packmodele;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class GArme {
    
     private static Integer idAMax = 1;
-    private static Collection<Arme> ttesArmes;
+    private static ArrayList<Arme> ttesArmes;
 
     public static void creerArme(String nom, Integer puissance) {
         Arme a = new Arme(GArme.idAMax,nom,puissance);
@@ -17,17 +18,15 @@ public class GArme {
     }
 
     public static Arme getArme(Integer idA) throws IllegalArgumentException{
-        Arme res = new Arme(0,"",0);
-        boolean test = false;
-        for(Arme a : ttesArmes) {
-            if (a.getIdA() == idA) {
-                res = a;
-                test = true;
+        int index = -1;
+        for(int i = 0; i < ttesArmes.size(); i++) {
+            if(ttesArmes.get(i).getIdA() == idA) {
+                index = i;
+            }
+            else {
+                throw new IllegalArgumentException("Idp inconnu");
             }
         }
-        if (test == false) {
-            throw new IllegalArgumentException("Il n'y a pas d'arme avec cet identifiant");
-        }
-        return res;
+        return ttesArmes.get(index);
     }
 }
