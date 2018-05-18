@@ -391,5 +391,28 @@
     <type href='urn:uuid:b32341e7-9a35-4188-bd46-b4a435933273'/>
    </ownedParameter>
   </ownedOperation>
+  <ownedOperation xmi:type='uml:Operation' xmi:uuid='urn:uuid:2ed0ebd1-d4f9-4e7e-9f12-d88bcb7eb93a'
+    isAbstract='false'
+    isLeaf='false'
+    isQuery='false'
+    isStatic='false'
+    name='getArmes'
+    concurrency='sequential'
+    visibility='public'>
+   <ownedParameter xmi:type='uml:Parameter' xmi:uuid='urn:uuid:8821db4d-d0e3-46fa-8b57-6267f7379367'
+     isException='false'
+     isOrdered='false'
+     isStream='false'
+     isUnique='true'
+     direction='return'>
+    <type href='urn:uuid:cdc5f137-7409-445c-abd3-67b193517e4f'/>
+    <lowerValue xmi:type='uml:LiteralInteger' xmi:uuid='urn:uuid:6e521843-4689-4951-9389-b39611d14346'
+      value='0'
+      visibility='public'/>
+    <upperValue xmi:type='uml:LiteralUnlimitedNatural' xmi:uuid='urn:uuid:beafb287-8fa5-4cde-bd2d-4eae4d3e3261'
+      value='*'
+      visibility='public'/>
+   </ownedParameter>
+  </ownedOperation>
  </uml:Class>
 </xmi:XMI>
