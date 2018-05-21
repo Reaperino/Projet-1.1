@@ -39,8 +39,12 @@ public class GPersonnage {
         idpMax++;
     }
 
-    public static Collection listerPersonnages() {
-        return tsLesPersonnages;
+    public static ArrayList<Personnage> listerPersonnages() {
+        ArrayList res=new ArrayList<Personnage>();
+        for(Personnage pers: tsLesPersonnages ){
+            res.add(pers);
+        }
+        return res;
     }
 
     public static void ajouterTerrien(String nom, String fonction) {

@@ -1,5 +1,6 @@
 package packmodele;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -17,43 +18,75 @@ public class Terrien extends Personnage {
     /**
      * @associates <{packmodele.Arme}>
      */
-    private Collection arme;
+    private ArrayList<Arme> armes;
 
     public Terrien(Integer idp,String nom, String fonction) {
+        super(idp,nom);
+        this.fonction=fonction;
     }
 
     public static Integer getC_Force() {
+        return c_force;
+    }
+    
+    public String getFonction(){
+        return this.fonction;
     }
 
-    public static void setC_Force() {
+    public static void setC_Force(Integer force) {
+        c_force=force;
     }
 
     @Override
     public String presentationDetaille() {
-        // TODO Implement this method
-        return null;
+        String listEnnemis = "";
+        String listArme ="";
+        for(Personnage p : this.getEnnemis()) {
+            listEnnemis+= p.getNom() + ", ";
+        }
+        for(Arme a : this.getArmes()) {
+            listArme+= a.getNom() + ", ";
+        }
+        return this.presentationCourte() + "Mes ennemis sont : " + listEnnemis +". Mes armes sont : "+listArme ;
     }
 
     @Override
     public String presentationCourte() {
-        // TODO Implement this method
-        return null;
+       
+        return "Mon identifiant est " + this.getIdp() + ", je m'appelle " + this.getNom() + " et je suis de type " +
+               this.getClass().getSimpleName() + ".\nJ'ai une force de " + this.getForce() + ", ma vie est égale ? " + 
+               this.getVie() + "et ma fonction est "+this.getFonction()+"."; 
     }
 
     @Override
-    public void recevoirArme(Arme arme) {
-        // TODO Implement this method
+    public void recevoirArme(Arme arme) throws IllegalArgumentException {
+        boolean djaPresent=false;
+        for(int i=0;i<getArmes().size();i++){
+            if(getArmes().get(i).getIdA()== arme.getIdA()){
+                djaPresent=true;
+            }
+                }
+        if (djaPresent){
+            throw new IllegalArgumentException("Ce personnage poss¨¨de d¨¦j¨¤ cette arme");
+        }
+        else{
+        this.armes.add(arme);
+            }
     }
 
     @Override
     public Integer getForce() {
-        // TODO Implement this method
-        return null;
+        Integer res=c_force;
+        for(Arme a : getArmes()){
+            res+=a.getPuissance();
+        }
+        return res;
     }
 
-    @Override
-    public Collection getArmes() {
-        // TODO Implement this method
-        return Collections.emptySet();
+
+    public ArrayList<Arme> getArmes() {
+        ArrayList res=new ArrayList<Arme>();
+        res.addAll(this.armes);
+        return res;
     }
 }

@@ -6,7 +6,6 @@ import java.util.Collection;
 public abstract class Personnage {
   
     protected Integer force;
-    private Collection personnages;
     private Integer vie;
     private String nom;
     private Integer idp;
@@ -65,5 +64,6 @@ public abstract class Personnage {
     public abstract String presentationCourte();
 
     public abstract String presentationDetaille();
-
+    
+    public abstract ArrayList<Arme> getArmes();
 }

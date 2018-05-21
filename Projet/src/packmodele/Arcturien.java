@@ -1,5 +1,6 @@
 package packmodele;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -19,10 +20,10 @@ public class Arcturien extends Personnage {
         this.taille = taille;
         this.force = force;
         if (force > c_forceMax) {
-            throw new IllegalArgumentException("Force supérieure au seuil maximal autorisé");
+            throw new IllegalArgumentException("Force supérieure au seuil maximal autoris?");
         }
     }
-
+    
     public Integer getTaille() {
         return this.taille;
     }
@@ -43,13 +44,17 @@ public class Arcturien extends Personnage {
     @Override
     public String presentationCourte() {
         return "Mon identifiant est " + this.getIdp() + ", je m'appelle " + this.getNom() + " et je suis de type " +
-               this.getClass().getSimpleName() + ".\nJ'ai une force de " + this.getForce() + ", ma vie est égale à " + 
+               this.getClass().getSimpleName() + ".\nJ'ai une force de " + this.getForce() + ", ma vie est égale ? " + 
                this.getVie() + " et enfin ma taille est de " + this.getTaille() + "."; 
     }
 
     @Override
     public void recevoirArme(Arme arme) {
         //rien ne doit se passe car un Arcturien ne sait pas se servir d'une arme.
+    }
+    @Override
+    public ArrayList<Arme> getArmes(){
+        return new ArrayList<Arme>();
     }
 
     @Override
