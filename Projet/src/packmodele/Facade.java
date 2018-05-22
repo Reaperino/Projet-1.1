@@ -15,6 +15,8 @@ public final class Facade
       Personnage.setC_VieInit(vieInit);
       Terrien.setC_Force(forceTerriens);
       Arcturien.setC_ForceMax(forceMaxArctur);
+      Terrien.setC_TypeTerrien(typeTerrien);
+      Arcturien.setC_TypeArcturien(typeArcturien);
   }
   public static void creerJeuDEssai()
   {
@@ -23,19 +25,16 @@ public final class Facade
       ajouterArcturien("A3", 315, 70);
       
       ajouterTerrien("T1", "chef");
-      ajouterTerrien("T2", "g¨¦ologue");
+      ajouterTerrien("T2", "géologue");
       ajouterTerrien("T2", "stagiaire");
       
-      creerUneArme("d¨¦sint¨¦grateur", 20);
-      creerUneArme("¨¦p¨¦e-laser", 10);
+      creerUneArme("désintégrateur", 20);
+      creerUneArme("épée-laser", 10);
       creerUneArme("ordinateur", 2);
       
       donnerUneArme(1,4);
       donnerUneArme(2,5);
       donnerUneArme(3,6);
-      
-      
-      
   } 
   public static int ajouterArcturien(String nom, int taille, int force) 
   { 
@@ -81,7 +80,7 @@ public final class Facade
   public static String descriptionArme(int ida)
   { //retourne la description de l'arme ida : id, nom, puissance
       Arme a=GArme.getArme(ida);
-      return ida+", "+a.getNom()+", "+a.getPuissance();
+      return "Arme " + ida +"  "+a.getNom()+"  "+a.getPuissance();
   }
  //================= les listes ======================
  

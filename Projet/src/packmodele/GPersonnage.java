@@ -4,15 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GPersonnage {
-    /**
-     * @attribute
-     */
+   
     static Integer idpMax = 1;
-
-    /**
-     * @associates <{packmodele.Personnage}>
-     */
-    private static ArrayList<Personnage> tsLesPersonnages;
+    private static ArrayList<Personnage> tsLesPersonnages = new ArrayList<Personnage>();
 
     public static void supprimerPersonnage(Integer id) {
         if (!tsLesPersonnages.isEmpty()){
@@ -26,9 +20,9 @@ public class GPersonnage {
             if(tsLesPersonnages.get(i).getIdp() == idp) {
                 index = i;
             }
-            else {
+            /*else {
                 throw new IllegalArgumentException("Idp inconnu");
-            }
+            }*/
         }
         return tsLesPersonnages.get(index);
     }
@@ -40,7 +34,7 @@ public class GPersonnage {
     }
 
     public static ArrayList<Personnage> listerPersonnages() {
-        ArrayList res=new ArrayList<Personnage>();
+        ArrayList<Personnage> res=new ArrayList<Personnage>();
         for(Personnage pers: tsLesPersonnages ){
             res.add(pers);
         }

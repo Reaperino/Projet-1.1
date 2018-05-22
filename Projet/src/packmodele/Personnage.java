@@ -16,6 +16,7 @@ public abstract class Personnage {
         this.idp = idp;
         this.nom = nom;
         this.vie = c_vieInit;
+        this.agresseur = new ArrayList<Personnage>();
     }
 
     public static void setC_VieInit(Integer vie) {

@@ -5,15 +5,10 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class Arcturien extends Personnage {
-    /**
-     * @attribute
-     */
-    private Integer taille;
 
-    /**
-     * @attribute
-     */
+    private Integer taille;
     private static Integer c_forceMax = 100;
+    private static String c_typeArcturien = "Arcturien";
 
     public Arcturien(Integer idp, String nom, Integer taille, Integer force) throws IllegalArgumentException{
         super(idp,nom);
@@ -31,21 +26,29 @@ public class Arcturien extends Personnage {
     public static void setC_ForceMax(Integer force) {
         c_forceMax = force;
     }
+    
+    public static void setC_TypeArcturien(String type) {
+        c_typeArcturien = type;
+    }
 
     @Override
     public String presentationDetaille() {
-        String listEnnemis = "";
+        String listEnnemis = "[";
         for(Personnage p : this.getEnnemis()) {
-            listEnnemis+= p.getNom() + ", ";
+            listEnnemis+= p.getNom() + " ";
         }
-        return this.presentationCourte() + "Mes ennemis sont : " + listEnnemis;
+        listEnnemis+="]";
+        return this.presentationCourte() + "        Ennemis : " + listEnnemis;
     }
 
     @Override
     public String presentationCourte() {
-        return "Mon identifiant est " + this.getIdp() + ", je m'appelle " + this.getNom() + " et je suis de type " +
-               this.getClass().getSimpleName() + ".\nJ'ai une force de " + this.getForce() + ", ma vie est égale ? " + 
-               this.getVie() + " et enfin ma taille est de " + this.getTaille() + "."; 
+        String res = this.getIdp() + "  " + this.getNom() + "     " + this.getClass().getSimpleName() + "      " + this.getForce() + "           " + this.getVie() + "     " + this.getTaille();
+        for(int i =0; i < 15 - getTaille().toString().length(); i++) {
+            res += " ";
+        }
+        res += this.getArmes().size(); 
+        return res;
     }
 
     @Override

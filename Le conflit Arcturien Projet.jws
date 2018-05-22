@@ -25,5 +25,6 @@
    </list>
    <list n="listOfChildren">
       <hash><url n="URL" path="Projet/Projet.jpr"/></hash>
+      <hash><url n="URL" path="../../P21/TD10 Classes abstraites/Classes abstraites.jpr"/></hash>
    </list>
 </jws:workspace>

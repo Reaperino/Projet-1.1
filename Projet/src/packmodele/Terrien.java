@@ -5,23 +5,15 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class Terrien extends Personnage {
-    /**
-     * @attribute
-     */
+   
     private static Integer c_force = 20;
-
-    /**
-     * @attribute
-     */
     private String fonction;
-
-    /**
-     * @associates <{packmodele.Arme}>
-     */
     private ArrayList<Arme> armes;
-
+    private static String c_typeTerrien = "Terrien";
+    
     public Terrien(Integer idp,String nom, String fonction) {
         super(idp,nom);
+        this.armes = new ArrayList<Arme>();
         this.fonction=fonction;
     }
 
@@ -36,26 +28,34 @@ public class Terrien extends Personnage {
     public static void setC_Force(Integer force) {
         c_force=force;
     }
+    
+    public static void setC_TypeTerrien(String type) {
+        c_typeTerrien = type;
+    }
 
     @Override
     public String presentationDetaille() {
-        String listEnnemis = "";
-        String listArme ="";
+        String listEnnemis = "[";
+        String listArme ="[";
         for(Personnage p : this.getEnnemis()) {
-            listEnnemis+= p.getNom() + ", ";
+            listEnnemis+= p.getNom() + "  ";
         }
         for(Arme a : this.getArmes()) {
-            listArme+= a.getNom() + ", ";
+            listArme+= a.getNom() + "  ";
         }
-        return this.presentationCourte() + "Mes ennemis sont : " + listEnnemis +". Mes armes sont : "+listArme ;
+        listEnnemis+="]";
+        listArme+="]";
+        return this.presentationCourte() + "        Ennemis : " + listEnnemis +" Armes : "+listArme ;
     }
 
     @Override
     public String presentationCourte() {
-       
-        return "Mon identifiant est " + this.getIdp() + ", je m'appelle " + this.getNom() + " et je suis de type " +
-               this.getClass().getSimpleName() + ".\nJ'ai une force de " + this.getForce() + ", ma vie est égale ? " + 
-               this.getVie() + "et ma fonction est "+this.getFonction()+"."; 
+        String res = this.getIdp() + "  " + this.getNom() + "     " + this.getClass().getSimpleName() + "        " + this.getForce() + "           " + this.getVie() + "     "+this.getFonction();
+        for(int i = 0; i<15 - this.getFonction().length(); i++) {
+            res += " ";
+        }
+        res += this.getArmes().size(); 
+        return res;
     }
 
     @Override
@@ -85,7 +85,7 @@ public class Terrien extends Personnage {
 
 
     public ArrayList<Arme> getArmes() {
-        ArrayList res=new ArrayList<Arme>();
+        ArrayList<Arme> res=new ArrayList<Arme>();
         res.addAll(this.armes);
         return res;
     }
