@@ -11,18 +11,18 @@ public class Arcturien extends Personnage {
     private static String c_typeArcturien = "Arcturien";
 
     public Arcturien(Integer idp, String nom, Integer taille, Integer force) throws IllegalArgumentException{
-        super(idp,nom);
+        super(idp,nom,c_typeArcturien);
         this.taille = taille;
         this.force = force;
-        if (force > c_forceMax) {
-            throw new IllegalArgumentException("Force supérieure au seuil maximal autoris?");
-        }
     }
     
     public Integer getTaille() {
         return this.taille;
     }
-
+    
+    public static Integer getC_ForceMax() {
+        return c_forceMax;
+    }
     public static void setC_ForceMax(Integer force) {
         c_forceMax = force;
     }

@@ -12,7 +12,7 @@ public class Terrien extends Personnage {
     private static String c_typeTerrien = "Terrien";
     
     public Terrien(Integer idp,String nom, String fonction) {
-        super(idp,nom);
+        super(idp,nom,c_typeTerrien);
         this.armes = new ArrayList<Arme>();
         this.fonction=fonction;
     }

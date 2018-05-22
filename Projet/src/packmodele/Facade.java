@@ -86,7 +86,7 @@ public final class Facade
  
   public static Collection<Integer> listerTsPersonnages() 
   {//retourne les idp de tous les personnages crees
-      ArrayList listIdp = new ArrayList<Integer>();
+      ArrayList<Integer> listIdp = new ArrayList<Integer>();
       for(Personnage p : GPersonnage.listerPersonnages()){
           listIdp.add(p.getIdp());
       }
@@ -95,7 +95,7 @@ public final class Facade
 
   public static Collection<Integer> listerTtesArmes() 
   {// retourne les ida de toutes les armes disponibles
-  ArrayList listIda = new ArrayList<Integer>();
+  ArrayList<Integer> listIda = new ArrayList<Integer>();
   for(Arme a : GArme.listerArmes()){
       listIda.add(a.getIdA());
   }
@@ -108,7 +108,7 @@ public final class Facade
 
   public static Collection<Integer> getArmes(int idp) 
   {//liste des ida des armes du personnage d'identifiant idp
-      ArrayList listIdArmes = new ArrayList<Integer>();
+      ArrayList<Integer> listIdArmes = new ArrayList<Integer>();
       for(Arme a : GPersonnage.getPers(idp).getArmes()){
           listIdArmes.add(a.getIdA());
       }
@@ -117,7 +117,7 @@ public final class Facade
 																																																																																										
   public static Collection<Integer> getEnnemis(int idp)
   {//liste des idp des ennemis du personnage d'identifiant idp  
-    ArrayList listIdp = new ArrayList<Integer>();
+    ArrayList<Integer> listIdp = new ArrayList<Integer>();
     for(Personnage p : GPersonnage.getPers(idp).getEnnemis()){
         listIdp.add(p.getIdp());
     }
@@ -141,7 +141,7 @@ public final class Facade
           res=a.getTaille();
       }
       else{
-          throw new IOException("L'identifiant entr¨¦ en param¨¨tre n'est pas celui d'un Arcturien.");
+          throw new IOException("L'identifiant entré en paramètre n'est pas celui d'un Arcturien.");
       }
       return res;
   }

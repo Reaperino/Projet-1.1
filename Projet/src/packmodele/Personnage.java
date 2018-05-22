@@ -9,12 +9,14 @@ public abstract class Personnage {
     private Integer vie;
     private String nom;
     private Integer idp;
+    private String type;
     private static Integer c_vieInit = 200;
     private ArrayList<Personnage> agresseur;
 
-    public Personnage(Integer idp, String nom) {
+    public Personnage(Integer idp, String nom, String type) {
         this.idp = idp;
         this.nom = nom;
+        this.type = type;
         this.vie = c_vieInit;
         this.agresseur = new ArrayList<Personnage>();
     }
@@ -51,13 +53,21 @@ public abstract class Personnage {
         return this.idp;
     }
     
+    public String getType(){
+        return this.type;
+    }
+    
     public void attaquer(Personnage victime) {
         victime.seFaitAttaquer(this); //demander si this tout court marche
     }
 
     public void seFaitAttaquer(Personnage agresseur) {
         this.agresseur.add(agresseur);
-        this.vie -= agresseur.getForce();
+        this.setVie(this.getVie()-agresseur.getForce()) ;
+        
+        if(this.vie < 0) { //pour éviter que la vie passe sous 0
+            this.setVie(0);
+        }
     }
     
     public abstract void recevoirArme(Arme arme);

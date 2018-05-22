@@ -9,6 +9,9 @@ public class GArme {
     private static ArrayList<Arme> ttesArmes = new ArrayList<Arme>();
 
     public static void creerArme(String nom, Integer puissance) {
+        if (puissance < 0) {
+            throw new IllegalArgumentException("La puissance ne peut pas etre negative");
+        }
         Arme a = new Arme(GArme.idAMax,nom,puissance);
         ttesArmes.add(a);
         idAMax++;
@@ -22,14 +25,16 @@ public class GArme {
 
     public static Arme getArme(Integer idA) throws IllegalArgumentException{
         int index = -1;
+        boolean present = false;
         for(int i = 0; i < ttesArmes.size(); i++) {
             if(ttesArmes.get(i).getIdA() == idA) {
                 index = i;
+                present = true;
             }
-            /*else {
-                throw new IllegalArgumentException("Idp inconnu");
-            }*/
         }
+        if (present == false){
+               throw new IllegalArgumentException("Ida inconnu");
+            }
         return ttesArmes.get(index);
     }
 }
