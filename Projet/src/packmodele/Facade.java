@@ -172,6 +172,6 @@ public final class Facade
   }
    public static String getTypePers(int idp)
   {
-       return GPersonnage.getPers(idp).getClass().getSimpleName();
+       return GPersonnage.getPers(idp).getType();
   }
 }
