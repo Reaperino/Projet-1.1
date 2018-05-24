@@ -9,9 +9,6 @@ public class GArme {
     private static ArrayList<Arme> ttesArmes = new ArrayList<Arme>();
 
     public static void creerArme(String nom, Integer puissance) {
-        if (puissance < 0) {
-            throw new IllegalArgumentException("La puissance ne peut pas etre negative");
-        }
         Arme a = new Arme(GArme.idAMax,nom,puissance);
         ttesArmes.add(a);
         idAMax++;

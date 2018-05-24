@@ -132,7 +132,7 @@ public final class Facade
   {
       return GPersonnage.getPers(idp).getForce();
   }
-  public static int getTaille(int idp) throws IOException
+  public static int getTaille(int idp) throws IllegalArgumentException
   {
       int res=0;
       Personnage p=GPersonnage.getPers(idp);
@@ -141,11 +141,11 @@ public final class Facade
           res=a.getTaille();
       }
       else{
-          throw new IOException("L'identifiant entré en paramètre n'est pas celui d'un Arcturien.");
+          throw new IllegalArgumentException("L'identifiant entré en paramètre n'est pas celui d'un Arcturien.");
       }
       return res;
   }
-  public static String getFonction(int idp) throws IOException
+  public static String getFonction(int idp) throws IllegalArgumentException
   {
       String res="";
       Personnage p=GPersonnage.getPers(idp);
@@ -154,7 +154,7 @@ public final class Facade
           res=t.getFonction();
       }
       else{
-          throw new IOException("L'identifiant entr¨¦ en param¨¨tre n'est pas celui d'un Terrien.");
+          throw new IllegalArgumentException("L'identifiant entré en paramètre n'est pas celui d'un Terrien.");
       }
       return res;
   } 

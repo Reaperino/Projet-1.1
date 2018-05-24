@@ -6,7 +6,13 @@ public class Arme {
     private Integer puissance;
     private Integer idA;
 
-    public Arme(Integer ida, String nom, Integer puissance) {
+    public Arme(Integer ida, String nom, Integer puissance) throws IllegalArgumentException{
+        if (puissance < 0) {
+            throw new IllegalArgumentException("La puissance ne peut pas etre negative");
+        }
+        if (nom == null || nom == "") {
+            throw new IllegalArgumentException("Le nom ne peut être vide");
+        }
         this.idA = ida;
         this.nom = nom;
         this.puissance = puissance;

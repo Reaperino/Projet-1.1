@@ -14,6 +14,19 @@ public class Arcturien extends Personnage {
         super(idp,nom,c_typeArcturien);
         this.taille = taille;
         this.force = force;
+        
+        if (nom == null || nom == "") {
+            throw new IllegalArgumentException("Le nom ne peut être vide");
+        }
+        if (taille < 0) {
+            throw new IllegalArgumentException("La taille ne peut pas etre negative");
+        }
+        if (force < 0) {
+            throw new IllegalArgumentException("La force ne peut pas etre negative");
+        }
+        else if (force > Arcturien.getC_ForceMax()) {
+            throw new IllegalArgumentException("Force supérieure au seuil maximal autorisé");
+        }
     }
     
     public Integer getTaille() {
@@ -63,5 +76,9 @@ public class Arcturien extends Personnage {
     @Override
     public Integer getForce() {
         return this.force;
+    }
+    
+    public static String getC_TypeArcturien() {
+        return c_typeArcturien;
     }
 }

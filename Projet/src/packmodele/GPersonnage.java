@@ -27,16 +27,7 @@ public class GPersonnage {
         return tsLesPersonnages.get(index);
     }
 
-    public static void ajouterArcturien(String nom, Integer taille, Integer force) throws IllegalArgumentException{
-        if (taille < 0) {
-            throw new IllegalArgumentException("La taille ne peut pas etre negative");
-        }
-        if (force < 0) {
-            throw new IllegalArgumentException("La force ne peut pas etre negative");
-        }
-        else if (force > Arcturien.getC_ForceMax()) {
-            throw new IllegalArgumentException("Force supérieure au seuil maximal autorisé");
-        }
+    public static void ajouterArcturien(String nom, Integer taille, Integer force){
         Arcturien tmp = new Arcturien(idpMax,nom,taille,force);
         tsLesPersonnages.add(tmp);
         idpMax++;
