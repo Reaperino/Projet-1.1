@@ -11,7 +11,7 @@ public abstract class Personnage {
     private Integer idp;
     private String type;
     private static Integer c_vieInit = 200;
-    private ArrayList<Personnage> agresseur;
+    protected ArrayList<Personnage> agresseur;
 
     public Personnage(Integer idp, String nom, String type) {
         this.idp = idp;
@@ -64,7 +64,7 @@ public abstract class Personnage {
     public void seFaitAttaquer(Personnage agresseur) {
         this.agresseur.add(agresseur);
         this.setVie(this.getVie()-agresseur.getForce()) ;
-        
+               
         if(this.vie < 0) { //pour éviter que la vie passe sous 0
             this.setVie(0);
         }

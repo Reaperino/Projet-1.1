@@ -65,6 +65,16 @@ public final class Facade
   public static void supprimerPers (int idp)
   {//Supprime le personnage (idp)
       GPersonnage.supprimerPersonnage(idp);
+      //suppresion de l'instance du personnage dans la liste des ennemis des autres personnages
+      ArrayList<Personnage> p = GPersonnage.listerPersonnages();
+      for(Personnage pers : p) {
+          for(int i = 0; i<pers.getEnnemis().size(); i++) {
+              int ennemi = pers.getEnnemis().get(i).getIdp();
+              if( ennemi == idp){
+                  pers.agresseur.remove(i);
+              }
+          }
+      }
   }
 
  //============= informations affichables ================
