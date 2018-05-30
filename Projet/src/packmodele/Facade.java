@@ -24,6 +24,7 @@ public final class Facade
       ajouterArcturien("A2", 220, 60);
       ajouterArcturien("A3", 315, 70);
       
+      
       ajouterTerrien("T1", "chef");
       ajouterTerrien("T2", "géologue");
       ajouterTerrien("T2", "stagiaire");

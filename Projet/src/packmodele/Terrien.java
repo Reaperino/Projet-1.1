@@ -40,29 +40,43 @@ public class Terrien extends Personnage {
     }
 
     @Override
-    public String presentationDetaille() {
-        String listEnnemis = "[";
-        String listArme ="[";
-        for(Personnage p : this.getEnnemis()) {
-            listEnnemis+= p.getNom() + "  ";
+        public String presentationDetaille() {
+            String res="";
+            if(this.getVie()>0){
+            String listEnnemis = "[";
+            String listArme ="[";
+            for(Personnage p : this.getEnnemis()) {
+                listEnnemis+= p.getNom() + "  ";
+            }
+            for(Arme a : this.getArmes()) {
+                listArme+= a.getNom() + "  ";
+            }
+            listEnnemis+="]";
+            listArme+="]";
+            res=this.presentationCourte() + "        Ennemis : " + listEnnemis +" Armes : "+listArme ;
+            }
+            else{
+                res=this.presentationCourte();
+            }
+            return res;
         }
-        for(Arme a : this.getArmes()) {
-            listArme+= a.getNom() + "  ";
-        }
-        listEnnemis+="]";
-        listArme+="]";
-        return this.presentationCourte() + "        Ennemis : " + listEnnemis +" Armes : "+listArme ;
-    }
 
-    @Override
-    public String presentationCourte() {
-        String res = this.getIdp() + "  " + this.getNom() + "     " + this.getClass().getSimpleName() + "        " + this.getForce() + "           " + this.getVie() + "     "+this.getFonction();
-        for(int i = 0; i<15 - this.getFonction().length(); i++) {
-            res += " ";
+        @Override
+        public String presentationCourte() {
+            String res="";
+            if(this.getVie()>0){
+            res = this.getIdp() + "  " + this.getNom() + "     " + this.getClass().getSimpleName() + "        " + this.getForce() + "           " + this.getVie() + "     "+this.getFonction();
+            for(int i = 0; i<15 - this.getFonction().length(); i++) {
+                res += " ";
+            }
+            res += this.getArmes().size(); 
+            }
+            else  {
+                res=this.getIdp() + "  " + this.getNom() + " : Cet individu est mort, il ne peut pas se présenter.";
+            }
+                    
+            return res;
         }
-        res += this.getArmes().size(); 
-        return res;
-    }
 
     @Override
     public void recevoirArme(Arme arme) throws IllegalArgumentException {
@@ -89,7 +103,7 @@ public class Terrien extends Personnage {
         return res;
     }
 
-
+    @Override
     public ArrayList<Arme> getArmes() {
         ArrayList<Arme> res=new ArrayList<Arme>();
         res.addAll(this.armes);

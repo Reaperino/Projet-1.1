@@ -45,24 +45,37 @@ public class Arcturien extends Personnage {
     }
 
     @Override
-    public String presentationDetaille() {
-        String listEnnemis = "[";
-        for(Personnage p : this.getEnnemis()) {
-            listEnnemis+= p.getNom() + " ";
-        }
-        listEnnemis+="]";
-        return this.presentationCourte() + "        Ennemis : " + listEnnemis;
-    }
+        public String presentationDetaille() {
+            String res="";
+            if(this.getVie()>0){
+            String listEnnemis = "[";
+            for(Personnage p : this.getEnnemis()) {
+                listEnnemis+= p.getNom() + " ";
+            }
+            listEnnemis+="]";
+            res=this.presentationCourte() + "        Ennemis : " + listEnnemis;
+            }
+            else{
+                res=this.presentationCourte();
+            }
+            return res;
+            }
 
-    @Override
-    public String presentationCourte() {
-        String res = this.getIdp() + "  " + this.getNom() + "     " + this.getClass().getSimpleName() + "      " + this.getForce() + "           " + this.getVie() + "     " + this.getTaille();
-        for(int i =0; i < 15 - getTaille().toString().length(); i++) {
-            res += " ";
+        @Override
+        public String presentationCourte() {
+            String res="";
+            if(this.getVie()>0){
+            res = this.getIdp() + "  " + this.getNom() + "     " + this.getClass().getSimpleName() + "      " + this.getForce() + "           " + this.getVie() + "     " + this.getTaille();
+            for(int i =0; i < 15 - getTaille().toString().length(); i++) {
+                res += " ";
+            }
+            res += this.getArmes().size();
+            }
+            else{
+                res=this.getIdp() + "  " + this.getNom() + " : Cet individu est mort, il ne peut pas se présenter.";
+            }
+            return res;
         }
-        res += this.getArmes().size(); 
-        return res;
-    }
 
     @Override
     public void recevoirArme(Arme arme) {

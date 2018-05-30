@@ -62,13 +62,23 @@ public abstract class Personnage {
     }
 
     public void seFaitAttaquer(Personnage agresseur) {
-        this.agresseur.add(agresseur);
-        this.setVie(this.getVie()-agresseur.getForce()) ;
-               
-        if(this.vie < 0) { //pour éviter que la vie passe sous 0
-            this.setVie(0);
+            boolean djaPresent=false;
+            for(int i=0;i<getEnnemis().size();i++){
+                if(getEnnemis().get(i).getIdp()== agresseur.getIdp()){
+                    djaPresent=true;
+                }
+                    }
+            if (djaPresent){  
+            }
+            else{
+            this.agresseur.add(agresseur);
+                }
+            
+            this.setVie(this.getVie()-agresseur.getForce()) ;
+            if(this.vie < 0) { //pour éviter que la vie passe sous 0
+                this.setVie(0);
+            }
         }
-    }
     
     public abstract void recevoirArme(Arme arme);
     
