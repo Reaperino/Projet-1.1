@@ -5,8 +5,8 @@ import java.util.Collection;
 
 public class GPersonnage {
    
-    static Integer idpMax = 1;
-    private static ArrayList<Personnage> tsLesPersonnages = new ArrayList<Personnage>();
+    public static Integer idpMax = 1;
+    public static ArrayList<Personnage> tsLesPersonnages = new ArrayList<Personnage>();
 
     public static void supprimerPersonnage(Integer id) {
         tsLesPersonnages.remove(getPers(id));

@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class Arcturien extends Personnage {
-
+    
     private Integer taille;
     private static Integer c_forceMax = 100;
     private static String c_typeArcturien = "Arcturien";
@@ -15,7 +15,7 @@ public class Arcturien extends Personnage {
         this.taille = taille;
         this.force = force;
         
-        if (nom == null || nom == "") {
+        if (nom == null || nom.equals("")) {
             throw new IllegalArgumentException("Le nom ne peut être vide");
         }
         if (taille < 0) {
@@ -32,7 +32,7 @@ public class Arcturien extends Personnage {
     public Integer getTaille() {
         return this.taille;
     }
-    
+
     public static Integer getC_ForceMax() {
         return c_forceMax;
     }

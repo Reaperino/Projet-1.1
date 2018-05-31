@@ -10,7 +10,7 @@ public class Arme {
         if (puissance < 0) {
             throw new IllegalArgumentException("La puissance ne peut pas etre negative");
         }
-        if (nom == null || nom == "") {
+        if (nom == null || nom.equals("")) {
             throw new IllegalArgumentException("Le nom ne peut être vide");
         }
         this.idA = ida;

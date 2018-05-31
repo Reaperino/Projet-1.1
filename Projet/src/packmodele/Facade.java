@@ -27,7 +27,7 @@ public final class Facade
       
       ajouterTerrien("T1", "chef");
       ajouterTerrien("T2", "géologue");
-      ajouterTerrien("T2", "stagiaire");
+      ajouterTerrien("T3", "stagiaire");
       
       creerUneArme("désintégrateur", 20);
       creerUneArme("épée-laser", 10);
@@ -147,7 +147,7 @@ public final class Facade
   {
       int res=0;
       Personnage p=GPersonnage.getPers(idp);
-      if(p instanceof Arcturien){
+      if(p.getType().equals(Arcturien.getC_TypeArcturien())){
           Arcturien a=(Arcturien)p;
           res=a.getTaille();
       }
@@ -160,7 +160,7 @@ public final class Facade
   {
       String res="";
       Personnage p=GPersonnage.getPers(idp);
-      if(p instanceof Terrien){
+      if(p.getType().equals(Terrien.getC_TypeTerrien())){
           Terrien t=(Terrien)p;
           res=t.getFonction();
       }

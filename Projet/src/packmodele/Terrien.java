@@ -15,10 +15,10 @@ public class Terrien extends Personnage {
         super(idp,nom,c_typeTerrien);
         this.armes = new ArrayList<Arme>();
         this.fonction=fonction;
-        if (nom == null || nom == "") {
+        if (nom == null || nom.equals("")) {
             throw new IllegalArgumentException("Le nom ne peut être vide");
         }
-        if (fonction == null || fonction == "") {
+        if (fonction == null || fonction.equals("")){
             throw new IllegalArgumentException();
         }
     }
@@ -79,7 +79,7 @@ public class Terrien extends Personnage {
         }
 
     @Override
-    public void recevoirArme(Arme arme) throws IllegalArgumentException {
+    public void recevoirArme(Arme arme){
         boolean djaPresent=false;
         for(int i=0;i<getArmes().size();i++){
             if(getArmes().get(i).getIdA()== arme.getIdA()){
@@ -87,7 +87,7 @@ public class Terrien extends Personnage {
             }
                 }
         if (djaPresent){
-            throw new IllegalArgumentException("Ce personnage possède déjà cette arme");
+            System.out.println("Ce personnage possède déjà cette arme");
         }
         else{
         this.armes.add(arme);

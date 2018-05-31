@@ -5,8 +5,8 @@ import java.util.Collection;
 
 public class GArme {
    
-    static Integer idAMax = 1;
-    private static ArrayList<Arme> ttesArmes = new ArrayList<Arme>();
+    public static Integer idAMax = 1;
+    public static ArrayList<Arme> ttesArmes = new ArrayList<Arme>();
 
     public static void creerArme(String nom, Integer puissance) {
         Arme a = new Arme(GArme.idAMax,nom,puissance);
